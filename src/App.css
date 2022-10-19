@@ -45,6 +45,17 @@
   color: white;
   background-color: #fd0303;
   font-weight: bold;
+  border-radius: 10px;
   border-color: white;
   cursor: pointer;
+  padding: 6px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  display: block;
+  margin: 10px auto;
+}
+
+.bold {
+  font-weight: bold;
 }
