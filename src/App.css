@@ -48,6 +48,11 @@
   border-color: white;
   cursor: pointer;
   padding: 6px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  display: block;
+  margin: 10px auto;
 }
 
 .bold {
