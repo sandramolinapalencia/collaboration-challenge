@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import "./Form.css";
 
 const Form = () => {
   const {
@@ -10,88 +11,139 @@ const Form = () => {
   } = useForm();
 
   const sendEmail = () => {
-    emailjs.sendForm('service_k6dvzfr', 'template_dyja188', form.current, 'pJuNNF31cwLfQlHLW')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_k6dvzfr",
+        "template_dyja188",
+        form.current,
+        "pJuNNF31cwLfQlHLW"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
   };
 
   const form = useRef();
 
   return (
-    <form ref={form} onSubmit={handleSubmit(sendEmail)}>
+    <form ref={form} onSubmit={handleSubmit(sendEmail)} className='form'>
       <div className="Input-field">
-        <label htmlFor="recipientEmail">
+        <label className="label" htmlFor="recipientEmail">
           Please enter the email of the ANDi you would like to send your AND
-          title clue to
+          title to
         </label>
         <input
+          className="input"
           id="recipientEmail"
           name="recipientEmail"
           {...register("recipientEmail", { required: true })}
           type="email"
         />
         {errors.recipientEmail && errors.recipientEmail.type === "required" && (
-          <span role="alert">This is required</span>
+          <span className="error-message" role="alert">
+            This is required
+          </span>
         )}
         {errors.recipientEmail && errors.recipientEmail.type === "pattern" && (
-          <span role="alert">Invalid email. Must use ANDi email</span>
+          <span className="error-message" role="alert">
+            Invalid email. Must use ANDi email
+          </span>
         )}
       </div>
 
       <div className="Input-field">
-        <label htmlFor="toName">Recipient's name</label>
-        <input id="toName" name="toName" {...register("toName", { required: true })} />
-        {errors.toName && errors.toName.type === "required" && (
-          <span role="alert">This is required</span>
-        )}
-      </div>
-
-      <div className="Input-field">
-        <label htmlFor="yourEmail">Please enter your email</label>
+        <label className="label" htmlFor="toName">
+          Recipient's name
+        </label>
         <input
+          className="input"
+          id="toName"
+          name="toName"
+          {...register("toName", { required: true })}
+        />
+        {errors.toName && errors.toName.type === "required" && (
+          <span className="error-message" role="alert">
+            This is required
+          </span>
+        )}
+      </div>
+
+      <div className="Input-field">
+        <label className="label" htmlFor="yourEmail">
+          Please enter your email
+        </label>
+        <input
+          className="input"
           id="yourEmail"
           name="yourEmail"
           {...register("yourEmail", { required: true })}
           type="email"
         />
         {errors.yourEmail && errors.yourEmail.type === "required" && (
-          <span role="alert">This is required</span>
+          <span className="error-message" role="alert">
+            This is required
+          </span>
         )}
       </div>
 
       <div className="Input-field">
-        <label htmlFor="yourName">Your name</label>
-        <input id="yourName" name="yourName" {...register("yourName", { required: true })} />
-        {errors.yourName && errors.yourName.type === "required" && (
-          <span role="alert">This is required</span>
-        )}
-      </div>
-
-      <div className="Input-field">
-        <label htmlFor="andTitle">Your AND title</label>
-        <input id="andTitle" name="andTitle" {...register("andTitle", { required: true })} />
-        {errors.andTitle && errors.andTitle.type === "required" && (
-          <span role="alert">This is required</span>
-        )}
-      </div>
-
-      {/* I think that for MVP that it might be easier to have a text input and get the user to add a link to a photo/gif/video/meme on the internet */}
-      <div className="Input-field">
-        <label htmlFor="pictureClue">Please add a link to a photo/media for your AND title clue</label>
+        <label className="label" htmlFor="yourName">
+          Your name
+        </label>
         <input
+          className="input"
+          id="yourName"
+          name="yourName"
+          {...register("yourName", { required: true })}
+        />
+        {errors.yourName && errors.yourName.type === "required" && (
+          <span className="error-message" role="alert">
+            This is required
+          </span>
+        )}
+      </div>
+
+      <div className="Input-field">
+        <label className="label" htmlFor="andTitle">
+          Your AND title
+        </label>
+        <input
+          className="input"
+          id="andTitle"
+          name="andTitle"
+          {...register("andTitle", { required: true })}
+        />
+        {errors.andTitle && errors.andTitle.type === "required" && (
+          <span className="error-message" role="alert">
+            This is required
+          </span>
+        )}
+      </div>
+
+      <div className="Input-field">
+        <label className="label" htmlFor="pictureClue">
+          Please add a link to a photo/media for your AND title
+        </label>
+        <input
+          className="input"
           id="pictureClue"
           name="pictureClue"
+          placeholder="https//www....."
           {...register("pictureClue", { required: true })}
         />
         {errors.pictureClue && errors.pictureClue.type === "required" && (
-          <span role="alert">This is required</span>
+          <span className="error-message" role="alert">
+            This is required
+          </span>
         )}
       </div>
 
-      <input type="submit" />
+      <input type="submit" value="SEND EMAIL" id="submit-btn"/>
     </form>
   );
 };

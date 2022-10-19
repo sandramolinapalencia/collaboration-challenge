@@ -1,0 +1,20 @@
+.Input-field {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  padding-bottom: 5px;
+}
+
+.input {
+  border-radius: 5px;
+  height: 30px;
+  padding-left: 5px;
+  border: solid 1px grey
+}
+
+.form {
+  margin-top: 30px;
+}

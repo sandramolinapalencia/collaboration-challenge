@@ -1,26 +1,32 @@
 .App {
-  background-color: lightgray;
+  background-color: whitesmoke;
   height: 100vh;
+  padding: 40px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .App-logo {
-  height: 50px;
+  width: 250px;
   pointer-events: none;
+  height: fit-content;
+  margin-right: 30px;
 }
 
 .Page-title {
-  font-size: 100px;
-  padding-left: 30px;
+  font-size: 70px;
   margin: 0;
+  font-weight: bolder;
 }
 
+.Red-text {
+  color: #fd0303;
+}
 
 .App-header {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .App-link {
@@ -28,7 +34,28 @@
 }
 
 .Form-container {
-  border: solid hotpink 3px;
-  margin: 100px;
+  margin: 60px auto;
+  background-color: lightgray;
+  padding: 50px;
+  border-radius: 20px;
+  max-width: 700px;
 }
 
+#submit-btn {
+  color: white;
+  background-color: #fd0303;
+  font-weight: bold;
+  border-radius: 10px;
+  border-color: white;
+  cursor: pointer;
+  padding: 6px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  display: block;
+  margin: 10px auto;
+}
+
+.bold {
+  font-weight: bold;
+}
