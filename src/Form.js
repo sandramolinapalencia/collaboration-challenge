@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from 'react';
 import { useForm } from "react-hook-form";
+import emailjs from '@emailjs/browser';
 
 const Form = () => {
   const {
@@ -8,10 +9,19 @@ const Form = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const sendEmail = () => {
+    emailjs.sendForm('service_k6dvzfr', 'template_dyja188', form.current, 'pJuNNF31cwLfQlHLW')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
+  const form = useRef();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form ref={form} onSubmit={handleSubmit(sendEmail)}>
       <div className="Input-field">
         <label htmlFor="recipientEmail">
           Please enter the email of the ANDi you would like to send your AND
@@ -19,7 +29,8 @@ const Form = () => {
         </label>
         <input
           id="recipientEmail"
-          {...register("recipientEmail", { required: true, pattern: /@and.digital/ })}
+          name="recipientEmail"
+          {...register("recipientEmail", { required: true })}
           type="email"
         />
         {errors.recipientEmail && errors.recipientEmail.type === "required" && (
@@ -31,9 +42,18 @@ const Form = () => {
       </div>
 
       <div className="Input-field">
+        <label htmlFor="toName">Recipient's name</label>
+        <input id="toName" name="toName" {...register("toName", { required: true })} />
+        {errors.toName && errors.toName.type === "required" && (
+          <span role="alert">This is required</span>
+        )}
+      </div>
+
+      <div className="Input-field">
         <label htmlFor="yourEmail">Please enter your email</label>
         <input
           id="yourEmail"
+          name="yourEmail"
           {...register("yourEmail", { required: true })}
           type="email"
         />
@@ -43,8 +63,16 @@ const Form = () => {
       </div>
 
       <div className="Input-field">
+        <label htmlFor="yourName">Your name</label>
+        <input id="yourName" name="yourName" {...register("yourName", { required: true })} />
+        {errors.yourName && errors.yourName.type === "required" && (
+          <span role="alert">This is required</span>
+        )}
+      </div>
+
+      <div className="Input-field">
         <label htmlFor="andTitle">Your AND title</label>
-        <input id="andTitle" {...register("andTitle", { required: true })} />
+        <input id="andTitle" name="andTitle" {...register("andTitle", { required: true })} />
         {errors.andTitle && errors.andTitle.type === "required" && (
           <span role="alert">This is required</span>
         )}
@@ -52,10 +80,10 @@ const Form = () => {
 
       {/* I think that for MVP that it might be easier to have a text input and get the user to add a link to a photo/gif/video/meme on the internet */}
       <div className="Input-field">
-        <label htmlFor="pictureClue">Please upload your AND title clue</label>
+        <label htmlFor="pictureClue">Please add a link to a photo/media for your AND title clue</label>
         <input
           id="pictureClue"
-          type="file"
+          name="pictureClue"
           {...register("pictureClue", { required: true })}
         />
         {errors.pictureClue && errors.pictureClue.type === "required" && (
