@@ -15,7 +15,7 @@ function App() {
       <div className="Form-container">
         <div>
           <p>
-          ANDtitle is a platform that allows you to communicate your ANDtitle with other ANDis. The platform facilitates communication in a simple manner.<br/>
+          <span className="bold">ANDtitle</span> is a platform that allows you to communicate your ANDtitle with other ANDis. The platform facilitates communication in a simple manner.<br/>
           <br/>
           <p className="bold">INSTRUCTIONS:</p>
           <ol>
