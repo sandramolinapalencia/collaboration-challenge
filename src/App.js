@@ -14,16 +14,14 @@ function App() {
       </header>
       <div className="Form-container">
         <div>
-          <p>
           <span className="bold">ANDtitle</span> is a platform that allows you to communicate your ANDtitle with other ANDis. The platform facilitates communication in a simple manner.<br/>
           <br/>
           <p className="bold">INSTRUCTIONS:</p>
           <ol>
             <li>Fill out the areas below and click send email.</li>
             <li>Email is sent to reciepient.</li>
-            <li>Wait For your reply!</li>
+            <li>Wait for your reply!</li>
           </ol>
-          </p>
         </div>
         <Form />
       </div>
