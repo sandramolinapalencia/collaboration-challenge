@@ -35,7 +35,7 @@ const Form = () => {
       <div className="Input-field">
         <label className="label" htmlFor="recipientEmail">
           Please enter the email of the ANDi you would like to send your AND
-          title clue to
+          title to
         </label>
         <input
           className="input"
@@ -127,7 +127,7 @@ const Form = () => {
 
       <div className="Input-field">
         <label className="label" htmlFor="pictureClue">
-          Please add a link to a photo/media for your AND title clue
+          Please add a link to a photo/media for your AND title
         </label>
         <input
           className="input"
