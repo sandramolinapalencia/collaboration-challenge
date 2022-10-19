@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from 'react';
 import { useForm } from "react-hook-form";
 import emailjs from '@emailjs/browser';
 
@@ -9,9 +9,7 @@ const Form = () => {
     formState: { errors },
   } = useForm();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-  
+  const sendEmail = () => {
     emailjs.sendForm('service_k6dvzfr', 'template_dyja188', form.current, 'pJuNNF31cwLfQlHLW')
       .then((result) => {
           console.log(result.text);
@@ -20,8 +18,10 @@ const Form = () => {
       });
   };
 
+  const form = useRef();
+
   return (
-    <form onSubmit={handleSubmit(sendEmail)}>
+    <form ref={form} onSubmit={handleSubmit(sendEmail)}>
       <div className="Input-field">
         <label htmlFor="recipientEmail">
           Please enter the email of the ANDi you would like to send your AND
@@ -30,7 +30,7 @@ const Form = () => {
         <input
           id="recipientEmail"
           name="recipientEmail"
-          {...register("recipientEmail", { required: true, pattern: /@and.digital/ })}
+          {...register("recipientEmail", { required: true })}
           type="email"
         />
         {errors.recipientEmail && errors.recipientEmail.type === "required" && (
@@ -38,6 +38,14 @@ const Form = () => {
         )}
         {errors.recipientEmail && errors.recipientEmail.type === "pattern" && (
           <span role="alert">Invalid email. Must use ANDi email</span>
+        )}
+      </div>
+
+      <div className="Input-field">
+        <label htmlFor="toName">Recipient's name</label>
+        <input id="toName" name="toName" {...register("toName", { required: true })} />
+        {errors.toName && errors.toName.type === "required" && (
+          <span role="alert">This is required</span>
         )}
       </div>
 
@@ -55,7 +63,7 @@ const Form = () => {
       </div>
 
       <div className="Input-field">
-        <label htmlFor="yourName">Your AND title</label>
+        <label htmlFor="yourName">Your name</label>
         <input id="yourName" name="yourName" {...register("yourName", { required: true })} />
         {errors.yourName && errors.yourName.type === "required" && (
           <span role="alert">This is required</span>
