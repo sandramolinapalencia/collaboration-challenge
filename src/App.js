@@ -1,6 +1,7 @@
 import logo from "./and-logo.png";
 import "./App.css";
 import Form from "./Form";
+import { ContactUs } from "./test";
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
             </p>
           </div>
           <Form />
+          <ContactUs/>
         </div>
     </div>
   );
