@@ -9,10 +9,19 @@ const Form = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const sendEmail = (e) => {
+    e.preventDefault();
+  
+    emailjs.sendForm('service_k6dvzfr', 'template_dyja188', form.current, 'pJuNNF31cwLfQlHLW')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(sendEmail)}>
       <div className="Input-field">
         <label htmlFor="recipientEmail">
           Please enter the email of the ANDi you would like to send your AND
