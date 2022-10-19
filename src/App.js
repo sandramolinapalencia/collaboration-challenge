@@ -16,7 +16,8 @@ function App() {
         <div>
           <p>
           ANDtitle is a platform that allows you to communicate your ANDtitle with other ANDis. The platform facilitates communication in a simple manner.<br/>
-          INSTRUCTIONS:<br/>
+          <br/>
+          <p className="bold">INSTRUCTIONS:</p>
           <ol>
             <li>Fill out the areas below and click send email.</li>
             <li>Email is sent to reciepient.</li>

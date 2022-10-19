@@ -49,3 +49,7 @@
   cursor: pointer;
   padding: 6px;
 }
+
+.bold {
+  font-weight: bold;
+}
