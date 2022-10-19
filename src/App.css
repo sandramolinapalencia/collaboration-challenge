@@ -40,3 +40,11 @@
   /* border: solid 2px gray; */
 }
 
+#submit-btn {
+  color: white;
+  background-color: red;
+  font-weight: bold;
+  border-radius: 15px;
+  border-color: white;
+  cursor: pointer;
+}

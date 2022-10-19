@@ -143,7 +143,7 @@ const Form = () => {
         )}
       </div>
 
-      <input className="input" type="submit" />
+      <input type="submit" value="SEND EMAIL" id="submit-btn"/>
     </form>
   );
 };
