@@ -15,16 +15,13 @@ function App() {
       <div className="Form-container">
         <div>
           <p>
-            ANDtitle is a platform that allows you to communicate your ANDtitle
-            with other ANDies. The platform facilitates communication in a
-            simple manner. By inserting the relevant information, the functions
-            will enable ANDies to communicate their title with each other via
-            email. Instructions: input the email address of the ANDi initiating
-            the communication and a clue to enable the ANDies you are
-            communicating with to have a guess on what your ANDtitle is. If the
-            ANDi you are communicating with does not guess your ANDtitle within
-            5 minutes, we will be sending them and email automatically with the
-            answer.
+          ANDtitle is a platform that allows you to communicate your ANDtitle with other ANDis. The platform facilitates communication in a simple manner.<br/>
+          INSTRUCTIONS:<br/>
+          <ol>
+            <li>Fill out the areas below and click send email.</li>
+            <li>Email is sent to reciepient.</li>
+            <li>Wait For your reply!</li>
+          </ol>
           </p>
         </div>
         <Form />
