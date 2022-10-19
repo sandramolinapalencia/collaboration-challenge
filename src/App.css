@@ -1,26 +1,34 @@
 .App {
   background-color: lightgray;
   height: 100vh;
+  padding: 40px;
 }
 
 .App-logo {
-  height: 50px;
+  width: 250px;
   pointer-events: none;
+  height: fit-content;
+  /* padding-top: 40px; */
 }
 
 .Page-title {
   font-size: 100px;
-  padding-left: 30px;
   margin: 0;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
+.Red-text {
+  color: red;
+}
 
 .App-header {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  /* align-items: center; */
+  justify-content: space-between;
+  /* font-size: calc(10px + 2vmin); */
 }
 
 .App-link {
@@ -28,7 +36,9 @@
 }
 
 .Form-container {
-  border: solid hotpink 3px;
+  /* border: solid hotpink 3px; */
   margin: 100px;
+  background-color: grey;
+  padding: 30px
 }
 
